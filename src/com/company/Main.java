@@ -34,7 +34,17 @@ public class Main {
 
 
         Dice dice1 = new Dice();
-        DiceGame diceGame1 = new DiceGame(dice1);
-        diceGame1.play(1000000);
+        Dice dice2 = new Dice();
+
+        DiceGame diceGame1 = new DiceGame();
+        DiceGame diceGame2 = new DiceGame();
+
+        //playing first game
+        diceGame1.play(100000, dice1);
+
+        //playing second game
+        diceGame1.play(100000, dice1, dice2);
+
+
     }
 }
