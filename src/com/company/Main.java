@@ -40,10 +40,10 @@ public class Main {
         DiceGame diceGame2 = new DiceGame();
 
         //playing first game
-        diceGame1.play(100000, dice1);
+        diceGame1.play(1000000, dice1);
 
         //playing second game
-        diceGame1.play(100000, dice1, dice2);
+        diceGame1.play(1000000, dice1, dice2);
 
 
     }
