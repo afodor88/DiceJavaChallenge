@@ -43,7 +43,7 @@ public class Main {
         diceGame1.play(1000000, dice1);
 
         //playing second game
-        diceGame1.play(1000000, dice1, dice2);
+        diceGame2.play(1000000, dice1, dice2);
 
 
     }
