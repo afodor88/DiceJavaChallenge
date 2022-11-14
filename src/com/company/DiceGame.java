@@ -1,7 +1,6 @@
 package com.company;
 
 public class DiceGame {
-    private boolean won = false;
     private int winCount;
     private int loseCount;
 
@@ -21,15 +20,18 @@ public class DiceGame {
 
         while (simulations > 0) {
             System.out.println("Simulation nr: " + simulations);
-            won = false;
-            for (int i = 0; i < 4; i++) {
-                System.out.println("Roll number: " + (i + 1));
-                dice.roll();
-                int rolledValue = dice.getValueAfterRoll();
+            boolean won = false;
+            int sumOfRollNumbers = 0;
+            for (int i = 1; i <= 4; i++) {
+                int rolledValue = dice.roll();
+                sumOfRollNumbers += rolledValue;
+                System.out.println("Roll number: " + i + " rolled value: " + rolledValue);
+
                 if (rolledValue == 6) {
                     won = true;
                     winCount++;
                     System.out.println("Win! Win count: " + getWinCount() + "$");
+                    System.out.println("Mean: " + String.format("%.2f", (double) sumOfRollNumbers/i));
                     break;
                 }
             }
@@ -52,18 +54,21 @@ public class DiceGame {
 
         while (simulations > 0) {
             System.out.println("Simulation nr: " + simulations);
-            won = false;
-            for (int i = 0; i < 24; i++) {
-                System.out.println("Roll number: " + (i + 1));
-                dice1.roll();
-                dice2.roll();
-                int rolledValue1 = dice1.getValueAfterRoll();
-                int rolledValue2 = dice2.getValueAfterRoll();
+            boolean won = false;
+            int sumOfRollNumbers = 0;
+            for (int i = 1; i <= 24; i++) {
+                int rolledValue1 = dice1.roll();
+                int rolledValue2 = dice2.roll();
+                sumOfRollNumbers += rolledValue1;
+                sumOfRollNumbers += rolledValue2;
+
+                System.out.println("Roll number: " + i + " rolled value: " + rolledValue1 + " " + rolledValue2);
 
                 if (rolledValue1 == 6 && rolledValue2 == 6) {
                     won = true;
                     winCount++;
                     System.out.println("Win! New Win count: " + getWinCount() + "$");
+                    System.out.println("Mean: " + String.format("%.2f", (double) sumOfRollNumbers/(i*2)));
                     break;
                 }
             }
